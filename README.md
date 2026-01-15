@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chaize
 
-## Getting Started
+A beautiful chat interface for Google's Gemini AI models.
 
-First, run the development server:
+## Prerequisites
+
+- [Node.js](https://nodejs.org/) v18 or higher
+- A Google Gemini API key (get one at [Google AI Studio](https://aistudio.google.com/app/apikey))
+
+## Installation
 
 ```bash
+# Clone the repository
+git clone <your-repo-url>
+cd chaize
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Usage
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Click the model selector button in the top-left to open settings
+2. Enter your Gemini API key (stored locally in your browser)
+3. Select your preferred model
+4. Start chatting
 
-## Learn More
+## Available Models
 
-To learn more about Next.js, take a look at the following resources:
+- Gemini 2.5 Pro
+- Gemini 2.5 Flash
+- Gemini 2.5 Flash Lite
+- Gemini 2.0 Flash
+- Gemini 2.0 Flash Lite
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Features
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Dark/Light mode toggle (auto-saves preference)
+- Markdown rendering for AI responses
+- Code syntax highlighting
+- Local API key storage (never sent to our servers)
+- Responsive design
 
-## Deploy on Vercel
+## Production Build
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+# Build for production
+npm run build
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Start production server
+npm start
+```
