@@ -302,3 +302,38 @@ input:focus, textarea:focus, button:focus-visible {
   background: var(--bg-elevated);
   font-weight: 600;
 }
+
+/* LaTeX/KaTeX styles */
+.prose-custom .katex {
+  font-size: 1.1em;
+}
+
+.prose-custom .katex-display {
+  margin: 1.5em 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.5em 0;
+}
+
+.prose-custom .katex-display > .katex {
+  text-align: center;
+}
+
+.prose-custom .katex-html {
+  color: var(--text);
+}
+
+/* Ensure KaTeX colors work in dark mode */
+.katex .mord,
+.katex .mbin,
+.katex .mrel,
+.katex .mopen,
+.katex .mclose,
+.katex .mpunct,
+.katex .minner {
+  color: var(--text);
+}
+
+.katex .katex-html .base {
+  color: var(--text);
+}

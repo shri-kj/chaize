@@ -2,6 +2,9 @@
 
 import { useState, useEffect, useRef, FormEvent } from "react";
 import ReactMarkdown from "react-markdown";
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import "katex/dist/katex.min.css";
 
 interface Message {
   role: "user" | "assistant";
@@ -271,7 +274,12 @@ export default function Home() {
                   <div className="text-lg leading-relaxed text-[var(--text)]">
                     {msg.role === 'assistant' ? (
                       <div className="prose-custom">
-                        <ReactMarkdown>{msg.content}</ReactMarkdown>
+                        <ReactMarkdown
+                          remarkPlugins={[remarkMath]}
+                          rehypePlugins={[rehypeKatex]}
+                        >
+                          {msg.content}
+                        </ReactMarkdown>
                       </div>
                     ) : (
                       <p>{msg.content}</p>
