@@ -37,6 +37,15 @@ export default function Home() {
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
 
+  // Auto-resize textarea
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.style.height = '56px';
+      const scrollHeight = inputRef.current.scrollHeight;
+      inputRef.current.style.height = Math.min(scrollHeight, 200) + 'px';
+    }
+  }, [input]);
+
   useEffect(() => {
     const savedApiKey = localStorage.getItem("gemini-api-key");
     const savedModel = localStorage.getItem("gemini-model");
@@ -329,9 +338,8 @@ export default function Home() {
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={handleKeyDown}
               placeholder="Send a message..."
-              rows={1}
               className="w-full bg-[var(--bg-elevated)] border border-[var(--border)] rounded-2xl px-5 py-4 pr-14 text-[var(--text)] placeholder:text-[var(--text-muted)] resize-none focus:border-[var(--border-strong)] transition-colors"
-              style={{ minHeight: '56px', maxHeight: '200px' }}
+              style={{ height: '56px', maxHeight: '200px', overflow: 'hidden' }}
             />
             <button
               type="submit"
